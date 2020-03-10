@@ -1,0 +1,9 @@
+.container-maps {
+    display: flex;
+    margin-top: 25.9px;
+    flex-direction: column;
+    width: 65%;                                                   
+    margin-right: 25px;
+}
+    
+ #map {height: 139px;width: 100%;}
