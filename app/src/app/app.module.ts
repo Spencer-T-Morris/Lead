@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FactsPageComponent } from './facts-page/facts-page.component';
 import { MapComponent } from './map/map.component';
-
+import { BrowserModule } from '@angular/platform-browser'
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +15,8 @@ import { MapComponent } from './map/map.component';
   ],
   imports: [
     AppRoutingModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
