@@ -6,7 +6,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FactsPageComponent } from './facts-page/facts-page.component';
 import { MapComponent } from './map/map.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { AssitanceComponent } from './assistance/assitance.component'
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { AssitanceComponent } from './assistance/assitance.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { AssitanceComponent } from './assistance/assitance.component'
   imports: [
     AppRoutingModule,
     GoogleMapsModule,
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
