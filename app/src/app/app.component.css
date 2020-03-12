@@ -1,3 +1,9 @@
+:host {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 #header {
     width: 100vw;
     background-image: url("../assets/gr-skyline.jpg");
@@ -15,4 +21,17 @@ img {
 
 #city-name {
     color: #F7635C;
+}
+
+.sidenav-container {
+    flex-grow: 1;
+}
+
+#main-sidenav {
+    background-color: #f1f1f1;
+}
+
+.link-wrapper {
+    display: flex;
+    flex-direction: column;
 }
