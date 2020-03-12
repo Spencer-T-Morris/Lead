@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  apiKey="AIzaSyAaN_d2vPI53W3kxj3KtykfWCbnFAhwc10"
+  apiKey = "AIzaSyAaN_d2vPI53W3kxj3KtykfWCbnFAhwc10"
+
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
 }
