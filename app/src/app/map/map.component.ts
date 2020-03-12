@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MapComponent implements OnInit {
-  longitude=-85.6681
-  latitude=42.9634
+  LatLng= new google.maps.LatLng({lng:-85.6681, lat: 42.9634})
+  zoom= 10
+  GR= "grand rapids, michigan"
   constructor() { }
 
   ngOnInit() {
