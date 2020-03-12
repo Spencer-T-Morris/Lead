@@ -8,14 +8,15 @@ import { MapComponent } from './map/map.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSidenavModule } from "@angular/material/sidenav";
-
+import { AssitanceComponent } from './assistance/assitance.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     FactsPageComponent,
-    MapComponent
+    MapComponent,
+    AssitanceComponent
   ],
   imports: [
     AppRoutingModule,
