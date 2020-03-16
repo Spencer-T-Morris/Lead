@@ -20,7 +20,7 @@ const routes: Routes = [
     component: MapComponent
   },
   {
-    path: 'assistancw',
+    path: 'assistance',
     component: AssitanceComponent
   },
   {
