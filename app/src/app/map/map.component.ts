@@ -7,19 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MapComponent implements OnInit {
-  LatLng = new google.maps.LatLng({ lng: -85.6681, lat: 42.9634 })
-  zoom = 11
-  GR = "grand rapids, michigan"
+  LatLng = new google.maps.LatLng({ lng: -85.6681, lat: 42.9634 });
+  zoom = 11;
+  GR = "grand rapids, michigan";
   public mapHeight: string = "75vh";
   public mapWidth: string = "90vw";
-  circles = [ {
-    radius: 2,
-    center: this.LatLng,
-    options: {
-      fillColor: '#fff000'
-    }
-  }]
-  constructor() { }
+
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
     zoomControl: true,
@@ -27,7 +20,18 @@ export class MapComponent implements OnInit {
     disableDoubleClickZoom: false,
     maxZoom: 20,
     minZoom: 10,
-  }
+  };
+
+  circles = [{
+    radius: 2,
+    center: this.LatLng,
+    options: {
+      fillColor: '#fff000'
+    }
+  }];
+
+  constructor() { }
+
   zoomIn() {
     if (this.zoom < this.options.maxZoom) this.zoom++
   }
@@ -35,7 +39,6 @@ export class MapComponent implements OnInit {
   zoomOut() {
     if (this.zoom > this.options.minZoom) this.zoom--
   }
-  ngOnInit() {
-  }
 
+  ngOnInit() { }
 }
