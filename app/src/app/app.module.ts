@@ -8,6 +8,7 @@ import { MapComponent } from './map/map.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatExpansionModule } from "@angular/material/expansion";
 import { AssitanceComponent } from './assistance/assitance.component';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AssitanceComponent } from './assistance/assitance.component';
     GoogleMapsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
