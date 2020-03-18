@@ -1,5 +1,8 @@
 <div id="map-wrapper">
-    <input type="text" name="address-input" id="address-input">
-    <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="zoom" [options]="options"></google-map>
-    <!--<map-circle *ngFor="let circle of circles" [center]="this.LatLng" [radius]="circle.radius" [options]="circle.options"></map-circle> -->
+  <section id="search-inputs">
+    <input type="text" name="address-input" id="address-input" placeholder="5678 Sample St. SE">
+    <button id="btn-search">Go</button>
+  </section>
+  <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="zoom" [options]="options"></google-map>
+  <!--<map-circle *ngFor="let circle of circles" [center]="this.LatLng" [radius]="circle.radius" [options]="circle.options"></map-circle> -->
 </div>
