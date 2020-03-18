@@ -19,6 +19,7 @@
     background-color: #edf1f5;
 }
 
+/* These two rules turn the header & description a different color when selected */
 .mat-expansion-panel-header.mat-expanded:hover {
     background-color: #1179cc;
 }
