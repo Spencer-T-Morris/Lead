@@ -1,0 +1,21 @@
+#div-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search-inputs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1vh;
+}
+
+#address-input {
+    /* Change width w/ media query for desktop */
+    width: 80%;
+}
+
+#gmap-div {
+    height: 75vh;
+    width: 90vw;
+}
