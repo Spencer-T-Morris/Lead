@@ -75,6 +75,11 @@ export class MapComponent implements OnInit {
         } else {
           targetMap.center = results[0].geometry.location;
           targetMap.zoom = 16;
+          let marker = new google.maps.Marker({
+            map: this.gMap,
+            position: results[0].geometry.location,
+            icon: 'Test'
+          });
         }
       } else {
         console.log('Geocode was not successful for the following reason: ' + status);
