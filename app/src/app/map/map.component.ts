@@ -8,7 +8,7 @@ import { GoogleMap } from '@angular/google-maps';
 })
 
 export class MapComponent implements OnInit {
-  @ViewChild('googleMap') gMap: google.maps.Map;
+  @ViewChild('googleMap') gMap: GoogleMap;
   // gMap: google.maps.Map;
   LatLng = new google.maps.LatLng({ lng: -85.6681, lat: 42.9634 });
   geocoder = new google.maps.Geocoder();
@@ -45,46 +45,27 @@ export class MapComponent implements OnInit {
   }
 
   focusOnAddress(address: string) {
-    console.log('Focusing on', address);
-    this.centerMapOnAddress(this.geocoder, this.gMap, address);
-    // console.log(this.gMap);
-    // this.geocoder.geocode({ 'address': address }, function (results, status) {
-    //   if (status == 'OK') {
-    //     if ( false ) {
-    //       // this.gMap === undefined
-    //       console.log('gMap is undefined');
-    //     } else {
-    //       this.gMap.center = results[0].geometry.location;
-    //       this.gMap.zoom = 16;
-    //     }
-    //   } else {
-    //     console.log('Geocode was not successful for the following reason: ' + status);
-    //   }
-    // });
-  }
-
-  logCenter() {
-    console.log(this.gMap.getCenter().toString());
-  }
-
-  centerMapOnAddress(newGeocoder, targetMap, address) {
-    newGeocoder.geocode({ 'address': address }, function (results, status) {
+    console.log('Before center:', this.gMap.getCenter().toString());
+    // this.centerMapOnAddress(this.geocoder, this.gMap, address);
+    this.geocoder.geocode({ 'address': address }, (results, status) => {
       if (status == 'OK') {
-        if (targetMap === undefined) {
-          console.log('gargetMap is undefined');
+        if (this.gMap === undefined) {
+          
+          console.log('targetMap is undefined');
         } else {
-          targetMap.center = results[0].geometry.location;
-          targetMap.zoom = 16;
-          let marker = new google.maps.Marker({
-            map: this.gMap,
-            position: results[0].geometry.location,
-            icon: 'Test'
-          });
+          console.log(results);
+          this.gMap.center = results[0].geometry.location;
+          this.gMap.zoom = 18;
         }
       } else {
         console.log('Geocode was not successful for the following reason: ' + status);
       }
     });
+    console.log('After center:', this.gMap.getCenter().toString());
+  }
+
+  logCenter() {
+    console.log(this.gMap.getCenter().toString());
   }
 
   ngOnInit() {
