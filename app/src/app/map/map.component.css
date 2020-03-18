@@ -14,3 +14,8 @@
     /* Change width w/ media query for desktop */
     width: 80%;
 }
+
+#gmap-div {
+    height: 75vh;
+    width: 90vw;
+}
