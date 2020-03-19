@@ -15,7 +15,9 @@ export class CityDataService {
   private tempData: any[] = hardData;
 
   constructor(private http: HttpClient) {
-    console.log(this.tempData);
+    for (const residence of this.tempData) {
+      this.cityData.push(new CityResidence(residence));
+    }
     // ~~~~~~~~~ Base for when/if authentication gets working
     // this.http.get(this.cityDataEndpt).subscribe((data: any) => {
     //   for (const residence of data) {
