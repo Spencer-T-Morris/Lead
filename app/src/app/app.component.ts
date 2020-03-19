@@ -12,6 +12,4 @@ export class AppComponent {
 
   @ViewChild('sidenav') sidenav: MatSidenav;
   
-  
-  
 }
