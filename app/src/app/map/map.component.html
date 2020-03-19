@@ -3,10 +3,10 @@
     <input type="text" name="address-input" id="address-input" placeholder="5678 Sample St. SE" #addressInput
       (keyup.enter)="focusOnAddress(addressInput.value)">
     <button id="btn-search" (click)="focusOnAddress(addressInput.value)">Go</button>
-    <button (click)="logCenter()">Log Center</button>
+    <!-- <button (click)="logCenter()">Log Center</button> -->
   </section>
   <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="zoom" [options]="options" #googleMap>
-    <!-- <map-polygon *ngFor="let circle of circles" [center]="this.LatLng" [radius]="circle.radius"
+    <!-- <map-polygon *ngFor="let circle of circles" [center]="LatLng" [radius]="circle.radius"
       [options]="circle.options"></map-polygon> -->
   </google-map>
 </div>

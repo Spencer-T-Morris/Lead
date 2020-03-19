@@ -35,7 +35,14 @@ export class MapComponent implements OnInit {
     }
   }];
 
-  constructor(private cityDataService: CityDataService) { }
+  
+  // heatmap = new google.maps.visualization.HeatmapLayer({
+  //   data: this.cityDataService.getGeolocations(),
+  //   map: this.gMap
+  // });
+
+  // private cityDataService: CityDataService
+  constructor() { }
 
   zoomIn() {
     if (this.zoom < this.options.maxZoom) this.zoom++
@@ -68,13 +75,7 @@ export class MapComponent implements OnInit {
   logCenter() {
     console.log(this.gMap.getCenter().toString());
   }
-  heatmap = new google.maps.visualization.HeatmapLayer({
-    data: this.getCityData(),
-    //map: Map
-  });
-  getCityData(){
 
-  }
   ngOnInit() {
   }
 }
