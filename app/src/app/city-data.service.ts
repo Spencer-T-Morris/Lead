@@ -25,4 +25,12 @@ export class CityDataService {
     //   }
     // });
   }
+
+  getGeolocations(): google.maps.LatLng[] {
+    let geolocs: google.maps.LatLng[] = [];
+    for (const residence of this.cityData) {
+      geolocs.push(residence.geolocation);
+    }
+    return geolocs;
+  }
 }
