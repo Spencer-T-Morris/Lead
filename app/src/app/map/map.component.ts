@@ -37,7 +37,7 @@ export class MapComponent implements OnInit {
 
   
   heatmap = new google.maps.visualization.HeatmapLayer({
-    data: this.cityDataService.getGeolocations()
+    data: this.cityDataService.getGeolocations(),
     //map: this.gMap
   });
 
