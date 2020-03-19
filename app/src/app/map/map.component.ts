@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
+import { CityDataService } from '../city-data.service';
 
 @Component({
   selector: 'app-map',
@@ -34,7 +35,7 @@ export class MapComponent implements OnInit {
     }
   }];
 
-  constructor() { }
+  constructor(private cityDataService: CityDataService) { }
 
   zoomIn() {
     if (this.zoom < this.options.maxZoom) this.zoom++
