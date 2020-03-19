@@ -19,7 +19,7 @@ export class MapComponent implements OnInit {
   public mapWidth: string = "90vw";
 
   options: google.maps.MapOptions = {
-    mapTypeId: 'hybrid',
+    mapTypeId: 'satellite',
     zoomControl: true,
     scrollwheel: true,
     disableDoubleClickZoom: false,
@@ -68,7 +68,13 @@ export class MapComponent implements OnInit {
   logCenter() {
     console.log(this.gMap.getCenter().toString());
   }
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: this.getCityData(),
+    //map: Map
+  });
+  getCityData(){
 
+  }
   ngOnInit() {
   }
 }
