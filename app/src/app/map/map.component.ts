@@ -75,7 +75,13 @@ export class MapComponent implements OnInit {
   logCenter() {
     console.log(this.gMap.getCenter().toString());
   }
+  //heatmap = new google.maps.visualization.HeatmapLayer({
+    //data: this.getCityData(),
+    //map: Map
+  //});
+  //getCityData(){
 
+  //}
   ngOnInit() {
   }
 }
