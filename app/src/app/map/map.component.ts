@@ -36,13 +36,13 @@ export class MapComponent implements OnInit {
   }];
 
   
-  // heatmap = new google.maps.visualization.HeatmapLayer({
-  //   data: this.cityDataService.getGeolocations(),
-  //   map: this.gMap
-  // });
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: this.cityDataService.getGeolocations()
+    //map: this.gMap
+  });
 
   // private cityDataService: CityDataService
-  constructor() { }
+  constructor(private cityDataService: CityDataService) { }
 
   zoomIn() {
     if (this.zoom < this.options.maxZoom) this.zoom++
