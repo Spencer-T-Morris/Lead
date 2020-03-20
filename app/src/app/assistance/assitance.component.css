@@ -1,0 +1,60 @@
+.main{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homes{
+    display: flex;
+    flex-direction: column;
+}
+
+.partners{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.center{
+    align-self: center;
+}
+
+h2{
+    color: #4748de;
+    text-decoration: underline;
+}
+
+h3{
+    color: #1179cc;
+    text-decoration: underline;
+}
+
+h4{
+    color: #4797de;
+}
+
+a{
+    color: #1179cc;
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+  }
+  
+  ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #A4D0F5; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em
+}
+
+
+
