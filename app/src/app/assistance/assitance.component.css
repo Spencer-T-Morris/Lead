@@ -25,17 +25,27 @@
     align-self: center;
 }
 
-h2{
-    color: #4748de;
-    text-decoration: underline;
+h1{
+    color: #F7635C;
 }
 
-h3{
+hr {
+    border:none;
+    height: 20px;
+    width: 90%;
+    height: 50px;
+    margin-top: 0;
+    border-bottom: 1px solid #1f1209;
+    box-shadow: 0 20px 20px -20px #333;
+    margin: -50px auto 10px; 
+}
+
+h2{
     color: #1179cc;
     text-decoration: underline;
 }
 
-h4{
+h3{
     color: #4797de;
 }
 
