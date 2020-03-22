@@ -36,4 +36,8 @@ export class CityDataService {
     }
     return geolocs;
   }
+
+  getParcelByLatLng(targetGeoloc: google.maps.LatLng) {
+    return this.cityData.find(a => a.geolocation.equals(targetGeoloc));
+  }
 }
