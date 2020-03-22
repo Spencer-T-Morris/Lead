@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
   // Map vars
   LatLng = new google.maps.LatLng({ lng: -85.6681, lat: 42.9634 });
   geocoder = new google.maps.Geocoder();
-  zoom = 11;
+  initZoom = 11;
   GR = "grand rapids, michigan";
   mapHeight: string = "75vh";
   mapWidth: string = "90vw";
@@ -39,8 +39,8 @@ export class MapComponent implements OnInit {
 
   heatmapOptions = {
     data: this.cityDataService.getGeolocations(),
-    //dissipating: true, // prevent heatmap from disappearing when zooming
-    radius: 20, // have to manually set radius when dissipating is false
+    //dissipating: false, // prevent heatmap from disappearing when zooming
+    radius: 15, // have to manually set radius when dissipating is false
   };
 
   heatmap = new google.maps.visualization.HeatmapLayer(this.heatmapOptions);
@@ -67,8 +67,15 @@ export class MapComponent implements OnInit {
 
   updateZoom() {
     if (!(this.gMap === undefined)) {
-      this.zoom = this.gMap.getZoom();
-      if (this.zoom >= 16) {
+      // let zoomDifference = this.gMap.getZoom() - this.initZoom;
+      // if (zoomDifference > 0) {
+      //   this.heatmapOptions.radius = (1 / Math.pow(10, zoomDifference));
+      // } else if (zoomDifference == 0) {
+      //   this.heatmapOptions.radius = 0.001;
+      // }
+      // console.log(this.heatmapOptions);
+      // this.heatmap.setOptions(this.heatmapOptions);
+      if (this.initZoom >= 16) {
         this.updateMarkers();
       } else {
         // Clear markers

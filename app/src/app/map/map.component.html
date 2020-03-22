@@ -6,8 +6,8 @@
     <!-- <button (click)="logCenter()">Log Center</button> -->
   </section>
   <button id="toggle-markers" (click)="toggleMarkers()">Toggle Markers</button>
-  <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="zoom" [options]="options" #googleMap
-    (zoomChanged)="updateZoom()" (boundsChanged)="updateZoom()">
+  <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="initZoom" [options]="options" #googleMap
+    (zoomChanged)="updateZoom()">
     <map-marker #marker *ngFor="let markerPosition of visibleMarkers" [position]="markerPosition"
       [options]="markerOptions" (mapClick)="openInfoWindow(marker)"></map-marker>
     <map-info-window><section id="info-window-content" #infoWindowContent></section></map-info-window>
