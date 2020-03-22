@@ -16,7 +16,6 @@ export class CityDataService {
   private cityDataEndpt: string = 'https://data.grandrapidsmi.gov/resource/xbdc-f64e.json?$where=year_built%20%3C%20%271978%27%20AND%20year_built%20!=%20%270%27';
 
   constructor(private http: HttpClient) {
-    console.log(this.tempData);
     for (const residence of this.tempData) {
       this.cityData.push(new CityResidence(residence));
     }
