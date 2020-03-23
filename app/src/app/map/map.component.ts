@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { GoogleMap } from '@angular/google-maps';
+import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { CityDataService } from '../city-data.service';
 
 @Component({
@@ -9,14 +9,24 @@ import { CityDataService } from '../city-data.service';
 })
 
 export class MapComponent implements OnInit {
+  // HTML elements
   @ViewChild('googleMap') gMap: GoogleMap;
-  // gMap: google.maps.Map;
+  @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
+  @ViewChild('infoWindowContent') infoWindowContent: ElementRef;
+
+  // Marker vars
+  showMarkers = true;
+  markerOptions = { draggable: false };
+  markerPositions: google.maps.LatLng[] = this.cityDataService.getGeolocations();
+  visibleMarkers: google.maps.LatLng[] = [];
+
+  // Map vars
   LatLng = new google.maps.LatLng({ lng: -85.6681, lat: 42.9634 });
   geocoder = new google.maps.Geocoder();
-  zoom = 11;
+  initZoom = 11;
   GR = "grand rapids, michigan";
-  public mapHeight: string = "75vh";
-  public mapWidth: string = "90vw";
+  mapHeight: string = "75vh";
+  mapWidth: string = "90vw";
 
   options: google.maps.MapOptions = {
     mapTypeId: 'satellite',
@@ -27,41 +37,25 @@ export class MapComponent implements OnInit {
     minZoom: 10
   };
 
-  circles = [{
-    radius: 2,
-    center: this.LatLng,
-    options: {
-      fillColor: '#fff000'
-    }
-  }];
-
-  
-  heatmap = new google.maps.visualization.HeatmapLayer({
+  heatmapOptions = {
     data: this.cityDataService.getGeolocations(),
-    //map: this.gMap
-  });
+    //dissipating: false, // prevent heatmap from disappearing when zooming
+    radius: 15, // have to manually set radius when dissipating is false
+  };
+
+  heatmap = new google.maps.visualization.HeatmapLayer(this.heatmapOptions);
 
   // private cityDataService: CityDataService
   constructor(private cityDataService: CityDataService) { }
 
-  zoomIn() {
-    if (this.zoom < this.options.maxZoom) this.zoom++
-  }
-
-  zoomOut() {
-    if (this.zoom > this.options.minZoom) this.zoom--
-  }
-
   focusOnAddress(address: string) {
-    console.log('Before center:', this.gMap.getCenter().toString());
+    console.log(this.gMap);
     // this.centerMapOnAddress(this.geocoder, this.gMap, address);
     this.geocoder.geocode({ 'address': address }, (results, status) => {
       if (status == 'OK') {
         if (this.gMap === undefined) {
-          
-          console.log('targetMap is undefined');
+          console.log('gMap is undefined');
         } else {
-          console.log(results);
           this.gMap.center = results[0].geometry.location;
           this.gMap.zoom = 18;
         }
@@ -69,19 +63,52 @@ export class MapComponent implements OnInit {
         console.log('Geocode was not successful for the following reason: ' + status);
       }
     });
-    console.log('After center:', this.gMap.getCenter().toString());
   }
 
-  logCenter() {
-    console.log(this.gMap.getCenter().toString());
+  updateZoom() {
+    if (!(this.gMap === undefined)) {
+      // let zoomDifference = this.gMap.getZoom() - this.initZoom;
+      // if (zoomDifference > 0) {
+      //   this.heatmapOptions.radius = (1 / Math.pow(10, zoomDifference));
+      // } else if (zoomDifference == 0) {
+      //   this.heatmapOptions.radius = 0.001;
+      // }
+      // console.log(this.heatmapOptions);
+      // this.heatmap.setOptions(this.heatmapOptions);
+      if (this.initZoom >= 16) {
+        this.updateMarkers();
+      } else {
+        // Clear markers
+        this.visibleMarkers = [];
+      }
+    }
   }
-  //heatmap = new google.maps.visualization.HeatmapLayer({
-    //data: this.getCityData(),
-    //map: Map
-  //});
-  //getCityData(){
 
-  //}
+  updateMarkers() {
+    if (this.showMarkers) {
+      this.visibleMarkers = this.markerPositions.filter(m => this.gMap.getBounds().contains(m))
+    } else {
+      this.visibleMarkers = [];
+    }
+  }
+
+  toggleMarkers() {
+    this.showMarkers = !this.showMarkers;
+    this.updateMarkers();
+  }
+
+  openInfoWindow(marker: MapMarker) {
+    let targetParcel = this.cityDataService.getParcelByLatLng(marker.getPosition());
+    this.infoWindowContent.nativeElement.innerHTML = `<p>Latitude: ${targetParcel.geolocation.lat()}</p> <p>Longitude: ${targetParcel.geolocation.lng()}</p> <p>Year Built: ${targetParcel.yearBuilt}</p>`;
+    this.infoWindow.open(marker);
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.heatmap.setMap(this.gMap.data.getMap());
+  }
+
   ngOnInit() {
   }
 }
