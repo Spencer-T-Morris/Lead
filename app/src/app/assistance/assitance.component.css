@@ -1,0 +1,70 @@
+.main{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homes{
+    display: flex;
+    flex-direction: column;
+}
+
+.partners{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.center{
+    align-self: center;
+}
+
+h1{
+    color: #F7635C;
+}
+
+hr {
+    border:none;
+    height: 20px;
+    width: 90%;
+    height: 50px;
+    margin-top: 0;
+    border-bottom: 1px solid #1f1209;
+    box-shadow: 0 20px 20px -20px #333;
+    margin: -50px auto 10px; 
+}
+
+h2{
+    color: #1179cc;
+    text-decoration: underline;
+}
+
+h3{
+    color: #4797de;
+}
+
+a{
+    color: #1179cc;
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+  }
+  
+  ul li::before {
+    content: "\2022";  /* unicode for a bullet */
+    color: #A4D0F5; /* Change the color */
+    font-weight: bold;
+    display: inline-block; /* add space between the bullet and the text */
+    width: 1em; /* Also needed for space */
+    margin-left: -1em /*Also for spacing*/
+}
+
+
+
