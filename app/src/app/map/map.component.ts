@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
   @ViewChild('googleMap') gMap: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
   @ViewChild('infoWindowContent') infoWindowContent: ElementRef;
+  @ViewChild('searchError') searchError: ElementRef;
 
   // Marker vars
   showMarkers = true;
@@ -27,6 +28,7 @@ export class MapComponent implements OnInit {
   GR = "grand rapids, michigan";
   mapHeight: string = "75vh";
   mapWidth: string = "90vw";
+  showSearchError: Boolean = false;
 
   options: google.maps.MapOptions = {
     mapTypeId: 'satellite',
@@ -49,18 +51,33 @@ export class MapComponent implements OnInit {
   constructor(private cityDataService: CityDataService) { }
 
   focusOnAddress(address: string) {
-    console.log(this.gMap);
-    // this.centerMapOnAddress(this.geocoder, this.gMap, address);
     this.geocoder.geocode({ 'address': address }, (results, status) => {
       if (status == 'OK') {
         if (this.gMap === undefined) {
           console.log('gMap is undefined');
         } else {
+          this.searchError.nativeElement.innerText = "";
           this.gMap.center = results[0].geometry.location;
           this.gMap.zoom = 18;
         }
       } else {
         console.log('Geocode was not successful for the following reason: ' + status);
+        this.showSearchError = true;
+        // Filtering for user-facing error
+        // List of statuses: https://developers.google.com/maps/documentation/javascript/reference/geocoder#GeocoderStatus
+        let errStr = 'ERROR';
+        if (address == "") {
+          errStr = "Please enter an address and try again."
+        } else if (status === 'INVALID_REQUEST' ||
+          status === 'UNKNOWN_ERROR' ||
+          status === 'REQUEST_DENIED') {
+          errStr = "Something went wrong. Please try again.";
+        } else if (status === 'OVER_QUERY_LIMIT') {
+          errStr = "Too many searches were made too quickly. Please wait a bit then try again.";
+        } else if (status === 'ZERO_RESULTS') {
+          errStr = "No results were found. Please try again.";
+        }
+        this.searchError.nativeElement.innerText = errStr;
       }
     });
   }

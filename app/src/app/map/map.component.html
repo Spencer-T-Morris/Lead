@@ -3,8 +3,8 @@
     <input type="text" name="address-input" id="address-input" placeholder="5678 Sample St. SE" #addressInput
       (keyup.enter)="focusOnAddress(addressInput.value)">
     <button id="btn-search" (click)="focusOnAddress(addressInput.value)">Go</button>
-    <!-- <button (click)="logCenter()">Log Center</button> -->
   </section>
+  <section id="search-error" #searchError></section>
   <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="initZoom" [options]="options" #googleMap
     (zoomChanged)="updateZoom()">
     <map-marker #marker *ngFor="let markerPosition of visibleMarkers" [position]="markerPosition"
