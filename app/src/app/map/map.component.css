@@ -19,3 +19,33 @@
     height: 75vh;
     width: 90vw;
 }
+
+/* Search button */
+
+#btn-search {
+    background-color: #20B874;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+#btn-search:hover,
+#btn-search:active {
+    background-color: #178553;
+}
+
+/* Search bar */
+#address-input {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding-left: 2%;
+}
+
+/* Search error */
+#search-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1vh;
+}

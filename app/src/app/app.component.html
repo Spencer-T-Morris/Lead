@@ -4,7 +4,7 @@
   <img src="../assets/hamburger-menu.jpg" alt="Menu icon" (click)="sidenav.toggle()">
 </div>
 <mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
-  <mat-sidenav #sidenav position="end" id="main-sidenav">
+  <mat-sidenav #sidenav position="end" id="main-sidenav" autoFocus="false">
     <section class="link-wrapper">
       <a [routerLink]="['']" routerLinkActive="router-link-active" (click)="sidenav.close()">Home</a>
       <a [routerLink]="['/map']" routerLinkActive="router-link-active" (click)="sidenav.close()">Map</a>
