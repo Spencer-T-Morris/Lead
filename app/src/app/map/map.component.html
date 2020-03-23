@@ -5,7 +5,6 @@
     <button id="btn-search" (click)="focusOnAddress(addressInput.value)">Go</button>
     <!-- <button (click)="logCenter()">Log Center</button> -->
   </section>
-  <button id="toggle-markers" (click)="toggleMarkers()">Toggle Markers</button>
   <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="initZoom" [options]="options" #googleMap
     (zoomChanged)="updateZoom()">
     <map-marker #marker *ngFor="let markerPosition of visibleMarkers" [position]="markerPosition"

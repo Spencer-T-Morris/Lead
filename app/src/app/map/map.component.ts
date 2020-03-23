@@ -92,11 +92,6 @@ export class MapComponent implements OnInit {
     }
   }
 
-  toggleMarkers() {
-    this.showMarkers = !this.showMarkers;
-    this.updateMarkers();
-  }
-
   openInfoWindow(marker: MapMarker) {
     let targetParcel = this.cityDataService.getParcelByLatLng(marker.getPosition());
     this.infoWindowContent.nativeElement.innerHTML = `<p>Latitude: ${targetParcel.geolocation.lat()}</p> <p>Longitude: ${targetParcel.geolocation.lng()}</p> <p>Year Built: ${targetParcel.yearBuilt}</p>`;
