@@ -10,7 +10,5 @@
     <map-marker #marker *ngFor="let markerPosition of visibleMarkers" [position]="markerPosition"
       [options]="markerOptions" (mapClick)="openInfoWindow(marker)"></map-marker>
     <map-info-window><section id="info-window-content" #infoWindowContent></section></map-info-window>
-    <!-- <map-polygon *ngFor="let circle of circles" [center]="LatLng" [radius]="circle.radius"
-      [options]="circle.options"></map-polygon> -->
   </google-map>
 </div>
