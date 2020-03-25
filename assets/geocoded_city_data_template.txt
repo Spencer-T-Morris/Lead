@@ -1,0 +1,10 @@
+This is just for reference so you don't have to open the giant .json file every time.
+{
+    "street_address": "2221 ELMRIDGE DR NW",
+    "Latitude": 43.005495,
+    "Longitude": -85.738655,
+    "Number": 2221,
+    "Street": "Elmridge Dr NW",
+    "Zip": 49504,
+    "year_built": "1962"
+}
