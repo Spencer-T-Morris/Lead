@@ -46,7 +46,6 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   heatmap = new google.maps.visualization.HeatmapLayer(this.heatmapOptions);
 
-  // private cityDataService: CityDataService
   constructor(private cityDataService: CityDataService) { }
 
   focusOnAddress(address: string) {
@@ -84,22 +83,6 @@ export class MapComponent implements OnInit, AfterViewInit {
         this.searchError.nativeElement.innerText = errStr;
       }
     });
-  }
-
-  updateZoom() {
-    if (!(this.gMap === undefined)) {
-      // let zoomDifference = this.gMap.getZoom() - this.initZoom;
-      // if (zoomDifference > 0) {
-      //   this.heatmapOptions.radius = (1 / Math.pow(10, zoomDifference));
-      // } else if (zoomDifference == 0) {
-      //   this.heatmapOptions.radius = 0.001;
-      // }
-      // console.log(this.heatmapOptions);
-      // this.heatmap.setOptions(this.heatmapOptions);
-      if (this.initZoom >= 16) {
-      } else {
-      }
-    }
   }
 
   openInfoWindow(marker: MapMarker) {

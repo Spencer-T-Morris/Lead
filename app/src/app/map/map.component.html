@@ -6,7 +6,7 @@
   </section>
   <section id="search-error" #searchError></section>
   <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="initZoom" [options]="options" #googleMap>
-    <map-marker #marker *ngFor="let markerPosition of visibleMarkers" [position]="markerPosition"
+    <map-marker #marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
       [options]="markerOptions" (mapClick)="openInfoWindow(marker)"></map-marker>
     <map-info-window><section id="info-window-content" #infoWindowContent></section></map-info-window>
   </google-map>
