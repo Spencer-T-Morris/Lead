@@ -5,12 +5,9 @@
     <button id="btn-search" (click)="focusOnAddress(addressInput.value)">Go</button>
   </section>
   <section id="search-error" #searchError></section>
-  <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="initZoom" [options]="options" #googleMap
-    (zoomChanged)="updateZoom()">
-    <map-marker #marker *ngFor="let markerPosition of visibleMarkers" [position]="markerPosition"
+  <google-map height={{mapHeight}} width={{mapWidth}} [center]="LatLng" [zoom]="initZoom" [options]="options" #googleMap>
+    <map-marker #marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
       [options]="markerOptions" (mapClick)="openInfoWindow(marker)"></map-marker>
     <map-info-window><section id="info-window-content" #infoWindowContent></section></map-info-window>
-    <!-- <map-polygon *ngFor="let circle of circles" [center]="LatLng" [radius]="circle.radius"
-      [options]="circle.options"></map-polygon> -->
   </google-map>
 </div>
