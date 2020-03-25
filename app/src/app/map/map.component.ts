@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { CityDataService } from '../city-data.service';
 
@@ -8,7 +8,7 @@ import { CityDataService } from '../city-data.service';
   styleUrls: ['./map.component.css']
 })
 
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, AfterViewInit {
   // HTML elements
   @ViewChild('googleMap') gMap: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
@@ -18,14 +18,13 @@ export class MapComponent implements OnInit {
   // Marker vars
   showMarkers = true;
   markerOptions = { draggable: false };
-  markerPositions: google.maps.LatLng[] = this.cityDataService.getGeolocations();
-  visibleMarkers: google.maps.LatLng[] = [];
+  markerPositions: google.maps.LatLng[] = [];
+  markerAddresses: string[] = [];
 
   // Map vars
   LatLng = new google.maps.LatLng({ lng: -85.6681, lat: 42.9634 });
   geocoder = new google.maps.Geocoder();
   initZoom = 11;
-  GR = "grand rapids, michigan";
   mapHeight: string = "75vh";
   mapWidth: string = "90vw";
   showSearchError: Boolean = false;
@@ -56,7 +55,12 @@ export class MapComponent implements OnInit {
         if (this.gMap === undefined) {
           console.log('gMap is undefined');
         } else {
+          // Adding marker location & address
+          this.markerPositions.push(results[0].geometry.location);
+          this.markerAddresses.push(address);
+          // Clear search error
           this.searchError.nativeElement.innerText = "";
+          // Center map
           this.gMap.center = results[0].geometry.location;
           this.gMap.zoom = 18;
         }
@@ -93,25 +97,21 @@ export class MapComponent implements OnInit {
       // console.log(this.heatmapOptions);
       // this.heatmap.setOptions(this.heatmapOptions);
       if (this.initZoom >= 16) {
-        this.updateMarkers();
       } else {
-        // Clear markers
-        this.visibleMarkers = [];
       }
     }
   }
 
-  updateMarkers() {
-    if (this.showMarkers) {
-      this.visibleMarkers = this.markerPositions.filter(m => this.gMap.getBounds().contains(m))
-    } else {
-      this.visibleMarkers = [];
-    }
-  }
-
   openInfoWindow(marker: MapMarker) {
-    let targetParcel = this.cityDataService.getParcelByLatLng(marker.getPosition());
-    this.infoWindowContent.nativeElement.innerHTML = `<p>Latitude: ${targetParcel.geolocation.lat()}</p> <p>Longitude: ${targetParcel.geolocation.lng()}</p> <p>Year Built: ${targetParcel.yearBuilt}</p>`;
+    let markerIndex = this.markerPositions.findIndex(m => m.equals(marker.getPosition()));
+    let infoStr = `<p>Latitude: ${marker.getPosition().lat()}</p>
+    <p>Longitude: ${marker.getPosition().lng()}</p>`;
+    // Adding address if matching marker is found
+    if (markerIndex != -1) {
+      infoStr = `<p>Address: ${this.markerAddresses[markerIndex]}</p>` + infoStr;
+    }
+
+    this.infoWindowContent.nativeElement.innerHTML = infoStr;
     this.infoWindow.open(marker);
   }
 
