@@ -47,3 +47,9 @@ img {
 .link-wrapper a:hover {
     text-decoration: underline #4190D1;
 }
+
+@media (min-width: 1024px) {
+    #header {
+        background-position-y: 65%;
+    }
+}
