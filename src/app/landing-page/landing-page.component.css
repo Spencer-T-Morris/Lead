@@ -1,43 +1,48 @@
-#landing-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #landing-facts {
-    margin-bottom: 5vh;
-    margin-top: 2vh;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
 }
 
 .mat-expansion-panel {
-    background-color: #edf1f5;
-    max-width: 50vw;
+  background-color: #edf1f5;
 }
 
 /* This rule prevent the background from changing back to white after
     an expansion panel has been selected & collapsed */
 .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover {
-    background-color: #edf1f5;
+  background-color: #edf1f5;
 }
 
 /* These two rules turn the header & description a different color when selected */
 .mat-expansion-panel-header.mat-expanded:hover {
-    background-color: #1179cc;
+  background-color: #1179cc;
 }
 
 .mat-expansion-panel-header.mat-expanded:hover .mat-expansion-panel-header-title,
 .mat-expansion-panel-header.mat-expanded:hover .mat-expansion-panel-header-description {
-    color: #fff;
+  color: #fff;
 }
 
 .exp-panel-title {
-    color: #1179CC
+  color: #1179CC
 }
 
 .centered-title {
-    justify-content: center;
+  justify-content: center;
 }
 
 p {
-    text-align: center;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .mat-expansion-panel {
+    max-width: 50vw;
+  }
 }
