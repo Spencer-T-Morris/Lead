@@ -29,11 +29,25 @@
   color: #fff;
 }
 
+/* Header title formatting */
+.mat-expansion-panel-header-title {
+  width: 25vw;
+  flex-grow: 0;
+  justify-content: center;
+}
+
+/* Header description formatting */
+.mat-expansion-panel-header-description {
+  justify-content: center;
+}
+
 .exp-panel-title {
   color: #1179CC
 }
 
+/* First expansion panel formatting */
 .centered-title {
+  flex-grow: 1;
   justify-content: center;
 }
 
