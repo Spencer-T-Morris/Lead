@@ -53,3 +53,9 @@ img {
         background-position-y: 65%;
     }
 }
+
+@media (min-width: 1500px) {
+    #header {
+        background-position-y: 70%;
+    }
+}
