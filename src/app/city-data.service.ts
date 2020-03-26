@@ -29,7 +29,6 @@ export class CityDataService {
 
   // HttpClient used for pulling & authenticating from API
   constructor(private http: HttpClient) {
-    console.log('Service loaded');
     // See LOCAL DATA COMMENT
     // for (const residence of this.tempData) {
     //   this.cityData.push(new CityResidence(residence));
