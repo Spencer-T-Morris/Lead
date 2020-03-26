@@ -1,7 +1,10 @@
 <div id="header">
   <img src="../assets/gr-city-logo.png" alt="Grand Rapids City Logo" id="gr-logo">
   <h1 id="city-name">Grand Rapids</h1>
-  <img src="../assets/hamburger-menu.jpg" alt="Menu icon" (click)="sidenav.toggle()">
+  <section id="menu-section">
+    <button id="word-menu" (click)="sidenav.toggle()">MENU</button>
+    <img src="../assets/hamburger-menu.jpg" alt="Menu icon" (click)="sidenav.toggle()" id="burger-menu">
+  </section>
 </div>
 <mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
   <mat-sidenav #sidenav position="end" id="main-sidenav" autoFocus="false">

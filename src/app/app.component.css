@@ -13,7 +13,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-left: 1vw;
+    padding-right: 2vw;
 }
+
+#word-menu {
+    display: none;
+    font-size: 1.5rem;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+#word-menu:active,
+#word-menu:hover {
+    text-decoration: underline #4190D1;
+}
+
 
 img {
     max-height: 10vh;
@@ -51,6 +67,14 @@ img {
 @media (min-width: 1024px) {
     #header {
         background-position-y: 65%;
+    }
+
+    #burger-menu {
+        display: none;
+    }
+
+    #word-menu {
+        display: block;
     }
 }
 
