@@ -13,3 +13,5 @@ Spencer T. Morris: [GitHub](https://github.com/Spencer-T-Morris/) | [Email](spen
 John McCarthy: [GitHub](https://github.com/wayaway-jtm/) | [Email](wayaway.jtm@gmail.com)
 
 Rob Harman: [GitHub](http://github.com/robertharman2) | [Email](robertharman2@yahoo.com)
+
+Nyki Lundgren: [GitHub](https://github.com/NykiLundgren) | [Email](nykilundgren127@gmail.com)
