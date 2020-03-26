@@ -29,10 +29,10 @@
     color: #fff;
 }
 
-#mat1 {
+.exp-panel-title {
     color: #1179CC
 }
 
-#mat2 {
-    color: #1179CC
+.centered-title {
+    text-align: center;
 }
