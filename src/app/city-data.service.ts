@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { CityResidence } from './cityResidence';
 import { HttpClient } from '@angular/common/http'; // For pulling & authenticating from API
 // For previous versions that pulled from a local file
@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http'; // For pulling & authenticati
   providedIn: 'root'
 })
 export class CityDataService {
+  public dataLoaded: boolean = false;
+  public dataLoadChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   private cityData: CityResidence[] = [];
   // See LOCAL DATA COMMENT
@@ -37,9 +39,12 @@ export class CityDataService {
     // For pulling & authenticating from API
     // ==============================================
     this.http.get(this.cityDataProxy).subscribe((data: any) => {
+
       for (const residence of data) {
         this.cityData.push(new CityResidence(residence));
       }
+      this.dataLoaded = true;
+      this.dataLoadChange.emit(true);
     });
   }
 

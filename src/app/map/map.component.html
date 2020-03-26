@@ -1,3 +1,7 @@
+<div id="loading-modal" *ngIf="!(cityDataService.dataLoaded)" (unload)="loadHeatmap()">
+  <p>Loading city data...</p>
+  <mat-spinner class="loading-spinner"></mat-spinner>
+</div>
 <div id="map-wrapper">
   <section id="search-inputs">
     <input type="text" name="address-input" id="address-input" placeholder="5678 Sample St. SE" #addressInput
