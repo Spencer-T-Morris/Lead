@@ -8,5 +8,5 @@ After years of seeing the number of lead poisonings  inside of the city of Grand
 
 ## Group Members
 
-Spencer T. Morris: [GitHub](https://github.com/Spencer-T-Morris/) [Email](spencertmorris.js@gmail.com)
-John McCarthy: [GitHub](https://github.com/wayaway-jtm/) [Email](wayaway.jtm@gmail.com)
+Spencer T. Morris: [GitHub](https://github.com/Spencer-T-Morris/) | [Email](spencertmorris.js@gmail.com)
+John McCarthy: [GitHub](https://github.com/wayaway-jtm/) | [Email](wayaway.jtm@gmail.com)
