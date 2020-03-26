@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { CityDataService } from '../city-data.service';
 
@@ -8,7 +8,7 @@ import { CityDataService } from '../city-data.service';
   styleUrls: ['./map.component.css']
 })
 
-export class MapComponent implements OnInit, AfterViewInit {
+export class MapComponent implements OnInit {
   // HTML elements
   @ViewChild('googleMap') gMap: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
@@ -46,7 +46,14 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   heatmap = new google.maps.visualization.HeatmapLayer(this.heatmapOptions);
 
-  constructor(private cityDataService: CityDataService) { }
+  // Data loading event handlers
+  dataLoadChange = this.cityDataService.dataLoadChange.subscribe((isLoaded: boolean) => {
+    if (isLoaded) {
+      this.loadHeatmap();
+    }
+  })
+
+  constructor(public cityDataService: CityDataService) { }
 
   focusOnAddress(address: string) {
     this.geocoder.geocode({ 'address': address }, (results, status) => {
@@ -98,9 +105,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.infoWindow.open(marker);
   }
 
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
+  loadHeatmap() {
+    this.heatmap.setData(this.cityDataService.getGeolocations());
     this.heatmap.setMap(this.gMap.data.getMap());
   }
 
