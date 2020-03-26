@@ -33,6 +33,6 @@
     color: #1179CC
 }
 
-.centered-title {
-    text-align: center;
+.mat-expansion-panel-header-title {
+    justify-content: center;
 }
