@@ -1,27 +1,12 @@
-# App
+# Lead Free Grand Rapids
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
+lead-free-grandrapids.netlify.com
 
-## Development server
+## Our Goal
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+After years of seeing the number of lead poisonings  inside of the city of Grand Rapids decrease, we have recently started seeing an upward trend in the graph. Our group wanted to tackle that problem by providing citizens with a heat map displaying houses built before 1978, access to health information, and access to city resources.  When we started looking at different ideas for this project we all agreed that the most important thing to us was trying to make a difference. Over the course of our lifetimes we have watched lead become a more prominent issue in society.  we wanted to build something that would educate the public, be user interactive, and assist in bettering the quality of life in members of the community. Houses built before 1978 have a high likely hood  of having lead paint in them, which over time can create dust that, when  inhaled and can lead to poisoning.  We used the city data on housing records to pull all homes built before 1978 and created a heat map overlay on a google maps api  that allows users to type in their address  and see if there house was built before 1978. We also took  facts about lead and tried to compile them in lemans terms so that anyone visiting our sight could increase their knowledge on the affects of lead in the human body. Finally we looked at all of the programs that the city has to help members of the community get assistance in removing lead from there houses, and provided links and contacts for those programs. Aside from using Grand Rapids City Parcels to get the data,  and Google Maps (with Visualization library) to display the data, we used  Angular 9 as our framework for the site, and then paired that with  Angular Materials.
 
-## Code scaffolding
+## Group Members
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Spencer T. Morris: [GitHub](https://github.com/Spencer-T-Morris/) [Email](spencertmorris.js@gmail.com)
+John McCarthy: [GitHub](https://github.com/wayaway-jtm/) [Email](wayaway.jtm@gmail.com)
