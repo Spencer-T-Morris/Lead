@@ -1,6 +1,6 @@
 # Lead Free Grand Rapids
 
-lead-free-grandrapids.netlify.com
+[lead-free-grandrapids.netlify.com](https://lead-free-grandrapids.netlify.com/)
 
 ## Our Goal
 
@@ -9,4 +9,7 @@ After years of seeing the number of lead poisonings  inside of the city of Grand
 ## Group Members
 
 Spencer T. Morris: [GitHub](https://github.com/Spencer-T-Morris/) | [Email](spencertmorris.js@gmail.com)
+
 John McCarthy: [GitHub](https://github.com/wayaway-jtm/) | [Email](wayaway.jtm@gmail.com)
+
+Rob Harman: [GitHub](http://github.com/robertharman2) | [Email](robertharman2@yahoo.com)
