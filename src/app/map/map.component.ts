@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { CityDataService } from '../city-data.service';
 
@@ -8,7 +8,7 @@ import { CityDataService } from '../city-data.service';
   styleUrls: ['./map.component.css']
 })
 
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, AfterViewInit {
   // HTML elements
   @ViewChild('googleMap') gMap: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
@@ -108,6 +108,14 @@ export class MapComponent implements OnInit {
   loadHeatmap() {
     this.heatmap.setData(this.cityDataService.getGeolocations());
     this.heatmap.setMap(this.gMap.data.getMap());
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    if (this.heatmap != undefined && this.gMap != undefined) {
+      this.loadHeatmap();
+    }
   }
 
   ngOnInit() {

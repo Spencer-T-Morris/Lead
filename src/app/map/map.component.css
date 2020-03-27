@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+#map-wrapper {
+    padding-top: 1%;
+}
+
 #search-inputs {
   display: flex;
   justify-content: space-evenly;
